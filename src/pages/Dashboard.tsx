@@ -33,10 +33,16 @@ export default function Dashboard() {
   const [submitting, setSubmitting] = useState(false);
 
   const fetchCustomers = async () => {
+    if (!companyId) {
+      setCustomers([]);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     const { data, error } = await supabase
       .from("customers")
       .select("*")
+      .eq("company_id", companyId)
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -49,7 +55,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchCustomers();
-  }, []);
+  }, [companyId]);
 
   const handleAdd = async (e: React.FormEvent) => {
     e.preventDefault();
