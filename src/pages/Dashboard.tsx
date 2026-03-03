@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { LogOut, Plus, Truck, Users, RefreshCw, UserCheck } from "lucide-react";
+import { LogOut, Plus, Truck, Users, RefreshCw, UserCheck, Car } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface Customer {
@@ -130,6 +130,9 @@ export default function Dashboard() {
         <div className="flex gap-2">
           <Button variant="outline" onClick={() => navigate("/drivers")}>
             <UserCheck className="mr-2 h-4 w-4" /> Manage Drivers
+          </Button>
+          <Button variant="outline" onClick={() => navigate("/vehicles")}>
+            <Car className="mr-2 h-4 w-4" /> Manage Vehicles
           </Button>
         </div>
 

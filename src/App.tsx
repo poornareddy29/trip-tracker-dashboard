@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Drivers from "./pages/Drivers";
+import Vehicles from "./pages/Vehicles";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/drivers" element={<ProtectedRoute><Drivers /></ProtectedRoute>} />
+            <Route path="/vehicles" element={<ProtectedRoute><Vehicles /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
