@@ -92,6 +92,36 @@ export type Database = {
         }
         Relationships: []
       }
+      vehicles: {
+        Row: {
+          capacity: number
+          company_id: string
+          created_at: string
+          id: string
+          is_available: boolean
+          model: string
+          plate_number: string
+        }
+        Insert: {
+          capacity?: number
+          company_id: string
+          created_at?: string
+          id?: string
+          is_available?: boolean
+          model: string
+          plate_number: string
+        }
+        Update: {
+          capacity?: number
+          company_id?: string
+          created_at?: string
+          id?: string
+          is_available?: boolean
+          model?: string
+          plate_number?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
