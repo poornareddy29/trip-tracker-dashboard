@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      companies: {
+        Row: {
+          address: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
       customers: {
         Row: {
           address: string | null
@@ -74,6 +101,117 @@ export type Database = {
         }
         Relationships: []
       }
+      employee: {
+        Row: {
+          company_id: string
+          created_at: string
+          email: string | null
+          id: string
+          is_active: boolean
+          name: string
+          phone: string | null
+          position: string | null
+          salary: number | null
+        }
+        Insert: {
+          company_id: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          phone?: string | null
+          position?: string | null
+          salary?: number | null
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          phone?: string | null
+          position?: string | null
+          salary?: number | null
+        }
+        Relationships: []
+      }
+      invoices: {
+        Row: {
+          amount: number
+          company_id: string
+          created_at: string
+          customer_id: string | null
+          due_date: string | null
+          id: string
+          invoice_number: string | null
+          notes: string | null
+          status: string
+          trip_id: string | null
+        }
+        Insert: {
+          amount?: number
+          company_id: string
+          created_at?: string
+          customer_id?: string | null
+          due_date?: string | null
+          id?: string
+          invoice_number?: string | null
+          notes?: string | null
+          status?: string
+          trip_id?: string | null
+        }
+        Update: {
+          amount?: number
+          company_id?: string
+          created_at?: string
+          customer_id?: string | null
+          due_date?: string | null
+          id?: string
+          invoice_number?: string | null
+          notes?: string | null
+          status?: string
+          trip_id?: string | null
+        }
+        Relationships: []
+      }
+      payment_table: {
+        Row: {
+          amount: number
+          company_id: string
+          created_at: string
+          id: string
+          invoice_id: string | null
+          notes: string | null
+          payment_date: string
+          payment_method: string | null
+          reference_number: string | null
+        }
+        Insert: {
+          amount?: number
+          company_id: string
+          created_at?: string
+          id?: string
+          invoice_id?: string | null
+          notes?: string | null
+          payment_date?: string
+          payment_method?: string | null
+          reference_number?: string | null
+        }
+        Update: {
+          amount?: number
+          company_id?: string
+          created_at?: string
+          id?: string
+          invoice_id?: string | null
+          notes?: string | null
+          payment_date?: string
+          payment_method?: string | null
+          reference_number?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           company_id: string | null
@@ -89,6 +227,177 @@ export type Database = {
           company_id?: string | null
           created_at?: string
           id?: string
+        }
+        Relationships: []
+      }
+      rate_master: {
+        Row: {
+          company_id: string
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          rate: number
+          unit: string
+        }
+        Insert: {
+          company_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          rate?: number
+          unit?: string
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          rate?: number
+          unit?: string
+        }
+        Relationships: []
+      }
+      routes: {
+        Row: {
+          company_id: string
+          created_at: string
+          destination: string
+          distance: number | null
+          estimated_time: string | null
+          id: string
+          origin: string
+        }
+        Insert: {
+          company_id: string
+          created_at?: string
+          destination: string
+          distance?: number | null
+          estimated_time?: string | null
+          id?: string
+          origin: string
+        }
+        Update: {
+          company_id?: string
+          created_at?: string
+          destination?: string
+          distance?: number | null
+          estimated_time?: string | null
+          id?: string
+          origin?: string
+        }
+        Relationships: []
+      }
+      suppliers: {
+        Row: {
+          address: string | null
+          company_id: string
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          address?: string | null
+          company_id: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          address?: string | null
+          company_id?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          phone?: string | null
+        }
+        Relationships: []
+      }
+      trip_expenses: {
+        Row: {
+          amount: number
+          category: string | null
+          company_id: string
+          created_at: string
+          description: string
+          expense_date: string
+          id: string
+          trip_id: string | null
+        }
+        Insert: {
+          amount?: number
+          category?: string | null
+          company_id: string
+          created_at?: string
+          description: string
+          expense_date?: string
+          id?: string
+          trip_id?: string | null
+        }
+        Update: {
+          amount?: number
+          category?: string | null
+          company_id?: string
+          created_at?: string
+          description?: string
+          expense_date?: string
+          id?: string
+          trip_id?: string | null
+        }
+        Relationships: []
+      }
+      trips: {
+        Row: {
+          arrival_date: string | null
+          company_id: string
+          created_at: string
+          customer_id: string | null
+          departure_date: string | null
+          destination: string
+          driver_id: string | null
+          id: string
+          notes: string | null
+          origin: string
+          route_id: string | null
+          status: string
+          vehicle_id: string | null
+        }
+        Insert: {
+          arrival_date?: string | null
+          company_id: string
+          created_at?: string
+          customer_id?: string | null
+          departure_date?: string | null
+          destination: string
+          driver_id?: string | null
+          id?: string
+          notes?: string | null
+          origin: string
+          route_id?: string | null
+          status?: string
+          vehicle_id?: string | null
+        }
+        Update: {
+          arrival_date?: string | null
+          company_id?: string
+          created_at?: string
+          customer_id?: string | null
+          departure_date?: string | null
+          destination?: string
+          driver_id?: string | null
+          id?: string
+          notes?: string | null
+          origin?: string
+          route_id?: string | null
+          status?: string
+          vehicle_id?: string | null
         }
         Relationships: []
       }
@@ -119,6 +428,39 @@ export type Database = {
           is_available?: boolean
           model?: string
           plate_number?: string
+        }
+        Relationships: []
+      }
+      vendors: {
+        Row: {
+          address: string | null
+          company_id: string
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          phone: string | null
+          service_type: string | null
+        }
+        Insert: {
+          address?: string | null
+          company_id: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          phone?: string | null
+          service_type?: string | null
+        }
+        Update: {
+          address?: string | null
+          company_id?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          phone?: string | null
+          service_type?: string | null
         }
         Relationships: []
       }
