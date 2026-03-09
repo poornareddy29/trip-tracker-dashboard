@@ -26,6 +26,13 @@ import {
   Receipt,
   FileText,
   LogOut,
+  Building2,
+  UserCog,
+  Route,
+  DollarSign,
+  Package,
+  Store,
+  CreditCard,
 } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -34,6 +41,7 @@ const navGroups = [
     label: "Overview",
     items: [
       { title: "Dashboard", icon: LayoutDashboard, path: "/" },
+      { title: "Company", icon: Building2, path: "/company" },
       { title: "Customers", icon: Users, path: "/customers" },
     ],
   },
@@ -42,19 +50,30 @@ const navGroups = [
     items: [
       { title: "Vehicles", icon: Car, path: "/vehicles" },
       { title: "Drivers", icon: UserCheck, path: "/drivers" },
+      { title: "Employees", icon: UserCog, path: "/employees" },
     ],
   },
   {
     label: "Trip Operations",
     items: [
       { title: "Trips", icon: MapPin, path: "/trips" },
-      { title: "Expenses", icon: Receipt, path: "/expenses" },
+      { title: "Routes", icon: Route, path: "/routes" },
+      { title: "Trip Expenses", icon: Receipt, path: "/trip-expenses" },
+      { title: "Rate Master", icon: DollarSign, path: "/rate-master" },
     ],
   },
   {
     label: "Billing",
     items: [
       { title: "Invoices", icon: FileText, path: "/invoices" },
+      { title: "Payments", icon: CreditCard, path: "/payments" },
+    ],
+  },
+  {
+    label: "Supply Chain",
+    items: [
+      { title: "Suppliers", icon: Package, path: "/suppliers" },
+      { title: "Vendors", icon: Store, path: "/vendors" },
     ],
   },
 ];
